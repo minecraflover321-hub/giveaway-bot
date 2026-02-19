@@ -1,3 +1,4 @@
+hereimport os
 import sqlite3
 import asyncio
 from datetime import datetime
@@ -10,9 +11,10 @@ from telegram.ext import (
     filters,
 )
 
-TOKEN = "8514085828:AAG8HnMFb616cNXChB3PLXQ8U3MPiZ2UgQE"
-OWNER_ID = 7958364334
-CHANNEL_ID = -1003776286094
+# ========== ENV VARIABLES ==========
+TOKEN = os.environ.get("TOKEN")
+OWNER_ID = int(os.environ.get("OWNER_ID"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID"))
 
 # ========== DATABASE ==========
 conn = sqlite3.connect("database.db", check_same_thread=False)
